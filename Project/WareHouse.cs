@@ -10,6 +10,7 @@ namespace Project
     {
         public List<Product> Product { get; set; } = new List<Product>();
         public double Square { get; set; }
+        public ResponsibilityWorker ResponsibilityWorker { get;set;}
         public Address Address { get; set; }
          public virtual bool IsAddProduct(Product product, int count)
         {
