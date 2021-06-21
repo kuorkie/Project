@@ -22,8 +22,8 @@ namespace Project
                 Product.Where(u => u.Name == product.Name).ToList().ForEach(i => i.Count += count);
                 return false; }
         }
-        {
-            {
+        public string IsFindProduct(string Sku){
+            if(Product.Any(u=>u.SKU==Sku)){return Sku;
             }
 
             else
@@ -34,7 +34,7 @@ namespace Project
 
             }
         }
-        {
+        public decimal TotalPrice(){
 
             decimal z = 0;
             foreach (var i in Product)
@@ -45,7 +45,7 @@ namespace Project
             return z;
         }
         
-        public bool IsRemove(string Sku,int count,Product product)
+        public virtual  bool IsRemove(string Sku,int count,Product product)
         {
             if (Product.Any(u => u.SKU == Sku))
             {Product.Where(u => u.SKU == Sku).ToList().ForEach(i => i.Count -= count);
@@ -56,6 +56,5 @@ namespace Project
         
         }
        
-    }
+    }}
     
-}

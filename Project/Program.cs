@@ -9,10 +9,11 @@ namespace Project
     class Program
     {
         static void Main()
-        {
+        { Product g=new Product
             {
                 Name = "coca-cola",
                 SKU = "1",
+                Description="delicious",
                 Count = 20,
                 Price = 250
             };
@@ -20,6 +21,7 @@ namespace Project
             {
                 Name = "coca-cola",
                 SKU = "2",
+                Description="cold",
                 Count = 20,
                 Price = 250
             };
