@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project
 {
-    public class WareHouse : IWareHouse
+    public abstract class WareHouse : IWareHouse
     {
         public List<Product> Product { get; set; } = new List<Product>();
         public double Square { get; set; }
@@ -46,10 +46,13 @@ namespace Project
             return z;
         }
         
-        public virtual  bool IsRemove(string Sku,int count,Product product)
+        public virtual  bool IsRemove(string Sku,int count,Product product,IWareHouse warehouse)
         {
             if (Product.Any(u => u.SKU == Sku))
-            {Product.Where(u => u.SKU == Sku).ToList().ForEach(i => i.Count -= count);
+
+            {
+                warehouse.IsAddProduct(product,count);
+                Product.Where(u => u.SKU == Sku).ToList().ForEach(i => i.Count -= count);
                 Product.RemoveAll(u=>u.SKU==Sku);
                 return true;
             }

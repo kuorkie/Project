@@ -27,8 +27,9 @@ namespace Project
             };
             
             WareHouse s = new OpenWareHouse1();
-
+             Console.WriteLine(s.IsAddProduct(g, 40));
             Console.WriteLine(s.IsAddProduct(l, 20));
+            Console.WriteLine(s.IsRemove("1",15,g,new CloseWareHouse()));
             
             Console.ReadKey();
         }

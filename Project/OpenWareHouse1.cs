@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project
 {
-    public class OpenWareHouse1:WareHouse
+    public class OpenWareHouse1:WareHouse,IWareHouse
 
     {
         public override bool IsAddProduct(Product product, int count)
