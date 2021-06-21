@@ -10,7 +10,6 @@ namespace Project
     {
         public List<Product> Product { get; set; } = new List<Product>();
         public double Square { get; set; }
-        public ResponsibilityWorker ResponsibilityWorker { get; set; }
         public Address Address { get; set; }
          public virtual bool IsAddProduct(Product product, int count)
         {
@@ -23,11 +22,8 @@ namespace Project
                 Product.Where(u => u.Name == product.Name).ToList().ForEach(i => i.Count += count);
                 return false; }
         }
-        public string IsFindProduct( string Sku)
         {
-            if (Product.Any(u => u.SKU == Sku))
             {
-                return Sku;
             }
 
             else
@@ -38,7 +34,6 @@ namespace Project
 
             }
         }
-        public decimal TotalPrice()
         {
 
             decimal z = 0;
@@ -49,7 +44,7 @@ namespace Project
             }
             return z;
         }
-
+        
         public bool IsRemove(string Sku,int count,Product product)
         {
             if (Product.Any(u => u.SKU == Sku))
@@ -58,9 +53,9 @@ namespace Project
                 return true;
             }
             else { return false; }
-
+        
         }
-              
+       
     }
     
 }
