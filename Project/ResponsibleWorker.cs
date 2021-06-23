@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project
 {
-    public class ResponsibilityWorker
+    public class ResponsibleWorker
     {
         public string Name { get; set; }
         public string  Position {get;set;}

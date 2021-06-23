@@ -10,7 +10,7 @@ namespace Project
     {
         public List<Product> Product { get; set; } = new List<Product>();
         public double Square { get; set; }
-        public ResponsibilityWorker ResponsibilityWorker { get;set;}
+        public ResponsibleWorker Worker { get;set;}
         public Address Address { get; set; }
          public virtual bool IsAddProduct(Product product, int count)
         {
@@ -46,7 +46,7 @@ namespace Project
             return z;
         }
         
-        public virtual  bool IsRemove(string Sku,int count,Product product,IWareHouse warehouse)
+        public virtual  bool IsMove(string Sku,int count,Product product,IWareHouse warehouse)
         {
             if (Product.Any(u => u.SKU == Sku))
 
@@ -59,6 +59,11 @@ namespace Project
             else { return false; }
         
         }
+        public void IsHireResponsibleWorker( ResponsibleWorker worker)
+        {
+            Worker=worker;
+           
+                  }
        
     }}
     

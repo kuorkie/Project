@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project
 {
-    public class CloseWareHouse:WareHouse,IWareHouse
+    public class ClosedWareHouse:WareHouse
     {
     }
 }

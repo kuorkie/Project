@@ -9,7 +9,7 @@ namespace Project
     class Program
     {
         static void Main()
-        { Product g=new Product
+        { Product product=new Product
             {
                 Name = "coca-cola",
                 SKU = "1",
@@ -17,7 +17,7 @@ namespace Project
                 Count = 20,
                 Price = 250
             };
-            Product l = new Product
+            Product product1 = new Product
             {
                 Name = "coca-cola",
                 SKU = "2",
@@ -25,11 +25,16 @@ namespace Project
                 Count = 20,
                 Price = 250
             };
-            
-            WareHouse s = new OpenWareHouse1();
-             Console.WriteLine(s.IsAddProduct(g, 40));
-            Console.WriteLine(s.IsAddProduct(l, 20));
-            Console.WriteLine(s.IsRemove("1",15,g,new CloseWareHouse()));
+            ResponsibleWorker worker=new ResponsibleWorker
+            {
+                Name="Kundyz",
+                Position="Operator"
+            };
+            WareHouse s = new OpenWareHouse();
+             Console.WriteLine(s.IsAddProduct(product, 40));
+            Console.WriteLine(s.IsAddProduct(product1, 20));
+            Console.WriteLine(s.IsMove("1",15,product1,new ClosedWareHouse()));
+           s.IsHireResponsibleWorker(worker);
             
             Console.ReadKey();
         }
