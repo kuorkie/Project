@@ -10,6 +10,7 @@ namespace Project
        string IsFindProduct( string Sku);
         bool IsMove(string Sku,int count,Product product,IWareHouse warehouse);
         void IsHireResponsibleWorker(ResponsibleWorker worker);
+        void Print();
     }
 }
     

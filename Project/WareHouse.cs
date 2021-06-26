@@ -60,10 +60,25 @@ namespace Project
         
         }
         public void IsHireResponsibleWorker( ResponsibleWorker worker)
-        {
+        { 
             Worker=worker;
            
                   }
        
-    }}
+          
+        
+           public void Print()
+           { Console.WriteLine("Products:");
+          foreach( var p in Product) { 
+            Console.WriteLine($"Name:{p.Name}");
+            Console.WriteLine($"SKU:{p.SKU}");
+            Console.WriteLine($"Description:{p.Description}");
+            Console.WriteLine($"Count:{p.Count}");
+            Console.WriteLine($"Price:{p.Price}");
+       }
+        Console.WriteLine($"Address:{Address}");
+        Console.WriteLine($"Responsible Worker:{Worker}");
+        }
+    }
+    }
     
