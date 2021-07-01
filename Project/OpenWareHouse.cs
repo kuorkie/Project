@@ -19,12 +19,15 @@ namespace Project
             else
             {
                 try
-                {
-                 base.IsAddProduct(product, count);
+                { if(product is BulkProduct)
+                    {
+                        throw new Exception("Сыпущие продукты в Открытом складе");
+                    }
+                 
                 }
-                catch
+                catch(Exception e)
                 {
-                      Console.WriteLine("Voznikla");
+                      Console.WriteLine($"Ошибка:{e.Message}");
                 }
                 
                 return false;

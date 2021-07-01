@@ -62,6 +62,7 @@ namespace Project
         public void IsHireResponsibleWorker( ResponsibleWorker worker)
         { 
             Worker=worker;
+            Console.WriteLine(Worker);
            
                   }
        

@@ -17,7 +17,7 @@ namespace Project
                 Count = 20,
                 Price = 250
             };
-            Product product1 = new BulkProduct
+            Product product1 = new DimensionProduct
             {
                 Name = "coca-cola",
                 SKU = "2",
@@ -25,7 +25,7 @@ namespace Project
                 Count = 20,
                 Price = 250
             };
-            ResponsibleWorker worker=new ResponsibleWorker
+            ResponsibleWorker worker1=new ResponsibleWorker
             {
                 Name="Kundyz",
                 Position="Operator"
@@ -42,54 +42,52 @@ namespace Project
             Console.WriteLine("3.Информация о товаре");
             Console.WriteLine("4.Назначить ответственого работника");
             Console.WriteLine("5.Общая цена\n");
+
             string method=Console.ReadLine();
             if (type == "Открытый" )
 
             {
               WareHouse o = new OpenWareHouse();
+              Console.WriteLine(o.IsAddProduct(product1, 40));  
+                switch (method) { 
+                   case "1":
+             Console.WriteLine(o.IsAddProduct(product, 40)); break;
+                   case "2":
                 Console.WriteLine(o.IsAddProduct(product1, 40));
-                if (method == "1") { 
-             Console.WriteLine(o.IsAddProduct(product, 40));}
-                 if (method == "2")
-                {Console.WriteLine(o.IsMove("1",15,product1,new ClosedWareHouse()));
+                Console.WriteLine(o.IsMove("1",15,product1,new ClosedWareHouse()));break;
 
-                }
-                 if(method == "3")
-                {
-                    o.Print();
-                }
-                if (method == "4")
-                {
-                    o.IsHireResponsibleWorker(worker);
-                }
-                if (method== "5")
-                {
-                    o.TotalPrice();
-                }
-            }
+                
+                case "3":
+                    o.Print(); break;
+                case "4":
+                    o.IsHireResponsibleWorker(worker1);break;
+               case "5":
+                   Console.WriteLine( o.TotalPrice()); break;
+
+                
+            }}
               if (type == "Закрытый" )
 
             {
               WareHouse f = new ClosedWareHouse();
-                Console.WriteLine(f.IsAddProduct(product, 40));
-                if (method == "1") { 
-             Console.WriteLine(f.IsAddProduct(product, 150));}
-                 if (method == "2")
-                {Console.WriteLine(f.IsMove("1",15,product1,new OpenWareHouse()));
+               Console.WriteLine(f.IsAddProduct(product1, 40));
+               switch (method) { 
+                   case "1":
+             Console.WriteLine(f.IsAddProduct(product1, 40)); break;
+                   case "2":
+                Console.WriteLine(f.IsAddProduct(product1, 40));
+                Console.WriteLine(f.IsMove("2",15,product1,new OpenWareHouse()));break;
 
-                }
-                 if(method == "3")
-                {
-                    f.Print();
-                }
-                if (method == "4")
-                {
-                    f.IsHireResponsibleWorker(worker);
-                }
-                if (method== "5")
-                {
-                    f.TotalPrice();
-                }
+                
+                case "3":
+                    f.Print(); break;
+                case "4":
+                    f.IsHireResponsibleWorker(worker1);break;
+               case "5":
+                    Console.WriteLine(f.TotalPrice());break;
+
+                
+            }
             }
 
            
