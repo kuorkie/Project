@@ -9,7 +9,7 @@ namespace Project
     class Program
     {
         static void Main()
-        { Product product=new LiquidProduct
+        { Product product=new BulkProduct
             {
                 Name = "coca-cola",
                 SKU = "1",
@@ -17,7 +17,7 @@ namespace Project
                 Count = 20,
                 Price = 250
             };
-            Product product1 = new DimensionProduct
+            Product product1 = new BulkProduct
             {
                 Name = "coca-cola",
                 SKU = "2",

@@ -18,8 +18,16 @@ namespace Project
             }
             else
             {
+                try
+                {
+                 base.IsAddProduct(product, count);
+                }
+                catch
+                {
+                      Console.WriteLine("Voznikla");
+                }
+                
                 return false;
-
             }
 
         }
