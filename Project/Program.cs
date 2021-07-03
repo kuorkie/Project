@@ -53,14 +53,14 @@ namespace Project
                    case "1":
              Console.WriteLine(o.IsAddProduct(product, 40)); break;
                    case "2":
-                Console.WriteLine(o.IsAddProduct(product1, 40));
-                Console.WriteLine(o.IsMove("1",15,product1,new ClosedWareHouse()));break;
+                
+                Console.WriteLine(o.IsMove(15,product1,new ClosedWareHouse()));break;
 
                 
                 case "3":
                     o.Print(); break;
                 case "4":
-                    o.IsHireResponsibleWorker(worker1);break;
+                    o.HireResponsibleWorker(worker1);break;
                case "5":
                    Console.WriteLine( o.TotalPrice()); break;
 
@@ -75,14 +75,14 @@ namespace Project
                    case "1":
              Console.WriteLine(f.IsAddProduct(product1, 40)); break;
                    case "2":
-                Console.WriteLine(f.IsAddProduct(product1, 40));
-                Console.WriteLine(f.IsMove("2",15,product1,new OpenWareHouse()));break;
+                
+                Console.WriteLine(f.IsMove(15,product1,new OpenWareHouse()));break;
 
                 
                 case "3":
                     f.Print(); break;
                 case "4":
-                    f.IsHireResponsibleWorker(worker1);break;
+                    f.HireResponsibleWorker(worker1);break;
                case "5":
                     Console.WriteLine(f.TotalPrice());break;
 

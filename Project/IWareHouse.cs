@@ -7,9 +7,9 @@ namespace Project
     {
        bool IsAddProduct(Product product, int count);
        decimal TotalPrice();
-       string IsFindProduct( string Sku);
-        bool IsMove(string Sku,int count,Product product,IWareHouse warehouse);
-        void IsHireResponsibleWorker(ResponsibleWorker worker);
+       string FindProduct( string Sku);
+        bool IsMove(int count,Product product,IWareHouse warehouse);
+        void HireResponsibleWorker(ResponsibleWorker worker);
         void Print();
     }
 }

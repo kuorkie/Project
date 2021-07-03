@@ -15,7 +15,9 @@ namespace Project
          public virtual bool IsAddProduct(Product product, int count)
         {
             if (Product.Any(u => u.Name == product.Name)) {
-                Product.Where(u => u.Name == product.Name).ToList().ForEach(i => i.Count += count);
+                var result=Product.Where(u => u.Name == product.Name).FirstOrDefault();
+                result.Count+=count;
+
                 return true;
             }
             else {
@@ -23,7 +25,7 @@ namespace Project
                 Product.Where(u => u.Name == product.Name).ToList().ForEach(i => i.Count += count);
                 return false; }
         }
-        public string IsFindProduct(string Sku){
+        public string FindProduct(string Sku){
             if(Product.Any(u=>u.SKU==Sku)){return Sku;
             }
 
@@ -37,29 +39,24 @@ namespace Project
         }
         public decimal TotalPrice(){
 
-            decimal z = 0;
-            foreach (var i in Product)
-            {
-                z += i.Price * i.Count;
-
-            }
-            return z;
+            var result=Product.Sum(u=>u.Count*u.Price);
+            return result;
         }
         
-        public virtual  bool IsMove(string Sku,int count,Product product,IWareHouse warehouse)
+        public virtual  bool IsMove(int count,Product product,IWareHouse warehouse)
         {
-            if (Product.Any(u => u.SKU == Sku))
-
-            {
-                warehouse.IsAddProduct(product,count);
-                Product.Where(u => u.SKU == Sku).ToList().ForEach(i => i.Count -= count);
-                Product.RemoveAll(u=>u.SKU==Sku);
+            if (Product.Any(u => u.Name == product.Name))
+            {warehouse.IsAddProduct(product,count);
+                Product.Where(u => u.Name == product.Name).FirstOrDefault().Count-=count;
+               
+             Console.WriteLine("Товар перемещен");
                 return true;
             }
-            else { return false; }
+            else { Console.WriteLine("Товар не найден");
+                return false; }
         
         }
-        public void IsHireResponsibleWorker( ResponsibleWorker worker)
+        public void HireResponsibleWorker( ResponsibleWorker worker)
         { 
             Worker=worker;
             Console.WriteLine(Worker);
