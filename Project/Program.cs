@@ -48,7 +48,8 @@ namespace Project
 
             {
               WareHouse o = new OpenWareHouse();
-              Console.WriteLine(o.IsAddProduct(product1, 40));  
+              Console.WriteLine(o.IsAddProduct(product1, 40));
+                o.HireResponsibleWorker(worker1);
                 switch (method) { 
                    case "1":
              Console.WriteLine(o.IsAddProduct(product, 40)); break;
@@ -73,10 +74,11 @@ namespace Project
                Console.WriteLine(f.IsAddProduct(product1, 40));
                switch (method) { 
                    case "1":
-             Console.WriteLine(f.IsAddProduct(product1, 40)); break;
+             Console.WriteLine(f.IsAddProduct(product1, 10)); break;
                    case "2":
                 
-                Console.WriteLine(f.IsMove(15,product1,new OpenWareHouse()));break;
+                Console.WriteLine(f.IsMove(100,product1,new OpenWareHouse()));
+                       break;
 
                 
                 case "3":

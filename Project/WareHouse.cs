@@ -17,12 +17,14 @@ namespace Project
             if (Product.Any(u => u.Name == product.Name)) {
                 var result=Product.Where(u => u.Name == product.Name).FirstOrDefault();
                 result.Count+=count;
-
+                Console.WriteLine( result.Count);
                 return true;
             }
             else {
                 Product.Add(product);
-                Product.Where(u => u.Name == product.Name).ToList().ForEach(i => i.Count += count);
+                var result =Product.Where(u => u.Name == product.Name).FirstOrDefault();
+                result.Count += count;
+                Console.WriteLine(result.Count);
                 return false; }
         }
         public string FindProduct(string Sku){
@@ -45,11 +47,12 @@ namespace Project
         
         public virtual  bool IsMove(int count,Product product,IWareHouse warehouse)
         {
-            if (Product.Any(u => u.Name == product.Name))
-            {warehouse.IsAddProduct(product,count);
+            if (Product.Any(u => u.Name == product.Name)&& warehouse.IsAddProduct(product, count)&&Product.Count>=count)
+            {
                 Product.Where(u => u.Name == product.Name).FirstOrDefault().Count-=count;
                
              Console.WriteLine("Товар перемещен");
+               
                 return true;
             }
             else { Console.WriteLine("Товар не найден");
@@ -73,9 +76,14 @@ namespace Project
             Console.WriteLine($"Description:{p.Description}");
             Console.WriteLine($"Count:{p.Count}");
             Console.WriteLine($"Price:{p.Price}");
-       }
-        Console.WriteLine($"Address:{Address}");
-        Console.WriteLine($"Responsible Worker:{Worker}");
+            }
+            Console.WriteLine("Worker:");
+            Console.WriteLine($"Responsible Worker:{Worker.Name}");
+            Console.WriteLine($"Position:{Worker.Position}");
+            Console.WriteLine("Address:");
+        Console.WriteLine($"City:{Address.City}");
+            Console.WriteLine($"Country:{Address.Country}");
+           
         }
     }
     }

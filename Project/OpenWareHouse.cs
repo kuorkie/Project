@@ -21,7 +21,7 @@ namespace Project
                 try
                 { if(product is BulkProduct)
                     {
-                        throw new Exception("Сыпущие продукты в Открытом складе");
+                        throw new Exception("Сыпучие продукты в Открытом складе");
                     }
                  
                 }
