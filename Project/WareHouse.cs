@@ -12,20 +12,27 @@ namespace Project
         public double Square { get; set; }
         public ResponsibleWorker Worker { get;set;}
         public Address Address { get; set; }
+
+        public event EventHandler<EventArgs> Notify = delegate { };
          public virtual bool IsAddProduct(Product product, int count)
         {
             if (Product.Any(u => u.Name == product.Name)) {
                 var result=Product.Where(u => u.Name == product.Name).FirstOrDefault();
                 result.Count+=count;
                 Console.WriteLine( result.Count);
-                return true;
+              
+                
             }
             else {
                 Product.Add(product);
                 var result =Product.Where(u => u.Name == product.Name).FirstOrDefault();
                 result.Count += count;
                 Console.WriteLine(result.Count);
-                return false; }
+                
+                }
+            return true;
+            Notify.Invoke(this, new EventArgs {  NameofProduct = product.Name });
+
         }
         public string FindProduct(string Sku){
             if(Product.Any(u=>u.SKU==Sku)){return Sku;
@@ -62,7 +69,7 @@ namespace Project
         public void HireResponsibleWorker( ResponsibleWorker worker)
         { 
             Worker=worker;
-            Console.WriteLine(Worker);
+            
            
                   }
        

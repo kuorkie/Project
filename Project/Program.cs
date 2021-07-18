@@ -48,7 +48,9 @@ namespace Project
 
             {
               WareHouse o = new OpenWareHouse();
-              Console.WriteLine(o.IsAddProduct(product1, 40));
+                o.Notify += (sender, e) =>
+                  Console.WriteLine(" Получено сообщение о добавление товара" + e.NameofProduct+" "+e.DateTime);
+                Console.WriteLine(o.IsAddProduct(product1, 40));
                 o.HireResponsibleWorker(worker1);
                 switch (method) { 
                    case "1":
@@ -71,10 +73,16 @@ namespace Project
 
             {
               WareHouse f = new ClosedWareHouse();
-               Console.WriteLine(f.IsAddProduct(product1, 40));
-               switch (method) { 
+                
+                Console.WriteLine(f.IsAddProduct(product1, 40));
+
+                f.Notify += (sender, e) =>
+                  Console.WriteLine(" Получено сообщение о добавление товара" + e.NameofProduct);
+                switch (method) { 
                    case "1":
-             Console.WriteLine(f.IsAddProduct(product1, 10)); break;
+             Console.WriteLine(f.IsAddProduct(product1, 10));
+                        
+                        break;
                    case "2":
                 
                 Console.WriteLine(f.IsMove(100,product1,new OpenWareHouse()));
@@ -95,5 +103,6 @@ namespace Project
            
             Console.ReadKey();
         }
+       
     }
 }
