@@ -13,7 +13,7 @@ namespace Project
         public ResponsibleWorker Worker { get;set;}
         public Address Address { get; set; }
 
-        public event EventHandler<EventArgs> Notify = delegate { };
+        public virtual event EventHandler<EventArgs> Notify = delegate { };
          public virtual bool IsAddProduct(Product product, int count)
         {
             if (Product.Any(u => u.Name == product.Name)) {
@@ -30,9 +30,9 @@ namespace Project
                 Console.WriteLine(result.Count);
                 
                 }
-            return true;
+            
             Notify.Invoke(this, new EventArgs {  NameofProduct = product.Name });
-
+            return true;
         }
         public string FindProduct(string Sku){
             if(Product.Any(u=>u.SKU==Sku)){return Sku;

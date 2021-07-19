@@ -9,14 +9,15 @@ namespace Project
     public class OpenWareHouse:WareHouse
 
     {
-        public event EventHandler<EventArgs> Notify = delegate { };
+        public override event EventHandler<EventArgs> Notify = delegate { };
         public override bool IsAddProduct(Product product, int count)
         {
             if(!(product is BulkProduct))
             {
                 base.IsAddProduct(product, count);
-                return true;
+              
                 Notify?.Invoke(this, new EventArgs { DateTime = DateTime.Now, NameofProduct = product.Name });
+                  return true;
             }
             
                 try
