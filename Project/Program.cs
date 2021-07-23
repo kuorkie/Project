@@ -19,7 +19,7 @@ namespace Project
             };
             Product product1 = new DimensionProduct
             {
-                Name = "coca-cola",
+                Name = "sprite",
                 SKU = "2",
                 Description="cold",
                 Count = 20,
@@ -35,6 +35,8 @@ namespace Project
               City="Busan",
               Country="South Korea"
           };
+            Product s = new Product();
+            s.MyExtension("coca-cola");            /*
             Console.WriteLine("Выберите тип склада:Открытый или Закрытый\n");
             string type=Console.ReadLine();
             Console.WriteLine("1.Добавить товар  ");
@@ -42,8 +44,10 @@ namespace Project
             Console.WriteLine("3.Информация о товаре");
             Console.WriteLine("4.Назначить ответственого работника");
             Console.WriteLine("5.Общая цена\n");
+            
 
-            string method=Console.ReadLine();
+
+            string method =Console.ReadLine();
             if (type == "Открытый" )
 
             {
@@ -75,7 +79,6 @@ namespace Project
               WareHouse f = new ClosedWareHouse();
                 
                 Console.WriteLine(f.IsAddProduct(product1, 40));
-
                 f.Notify += (sender, e) =>
                   Console.WriteLine(" Получено сообщение о добавление товара" + e.NameofProduct);
                 switch (method) { 
@@ -95,12 +98,10 @@ namespace Project
                     f.HireResponsibleWorker(worker1);break;
                case "5":
                     Console.WriteLine(f.TotalPrice());break;
-
                 
             }
             }
-
-           
+           */
             Console.ReadKey();
         }
        

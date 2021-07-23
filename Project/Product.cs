@@ -12,10 +12,17 @@ namespace Project
 
      public string Description { get;set;}
 
-    public int Count { get; set; }
+        internal static object Where(Func<object, bool> p)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Count { get; set; }
 
     public decimal Price { get; set; }
 
+        
 
-     
-}}
+    }
+   
+}

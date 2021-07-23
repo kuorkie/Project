@@ -58,7 +58,7 @@ namespace Project
             {if(warehouse.IsAddProduct(product, count)) 
                 Product.Where(u => u.Name == product.Name).FirstOrDefault().Count-=count;
                
-             Console.WriteLine("Товар перемещен");
+             Console.WriteLine("Товар перемещен"+Product.Where(u => u.Name == product.Name).FirstOrDefault().Count);
                
                 return true;
             }
@@ -72,10 +72,10 @@ namespace Project
             
            
                   }
+
        
-          
-        
-           public void Print()
+
+        public void Print()
            { Console.WriteLine("Products:");
           foreach( var p in Product) { 
             Console.WriteLine($"Name:{p.Name}");
