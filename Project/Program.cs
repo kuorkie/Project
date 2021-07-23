@@ -85,7 +85,7 @@ namespace Project
                         break;
                    case "2":
                 
-                Console.WriteLine(f.IsMove(100,product1,new OpenWareHouse()));
+                Console.WriteLine(f.IsMove(20,product1,new OpenWareHouse()));
                        break;
 
                 

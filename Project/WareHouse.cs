@@ -54,8 +54,8 @@ namespace Project
         
         public virtual  bool IsMove(int count,Product product,IWareHouse warehouse)
         {
-            if (Product.Any(u => u.Name == product.Name)&& warehouse.IsAddProduct(product, count)&&Product.Count>=count)
-            {
+            if (Product.Any(u => u.Name == product.Name)&&Product.Where(u => u.Name == product.Name).FirstOrDefault().Count>=count)
+            {if(warehouse.IsAddProduct(product, count)) 
                 Product.Where(u => u.Name == product.Name).FirstOrDefault().Count-=count;
                
              Console.WriteLine("Товар перемещен");

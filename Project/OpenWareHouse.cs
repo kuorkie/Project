@@ -12,22 +12,16 @@ namespace Project
         public override event EventHandler<EventArgs> Notify = delegate { };
         public override bool IsAddProduct(Product product, int count)
         {
+            try { 
             if(!(product is BulkProduct))
             {
                 base.IsAddProduct(product, count);
               
                 Notify?.Invoke(this, new EventArgs { DateTime = DateTime.Now, NameofProduct = product.Name });
                   return true;
+            } throw new Exception("Сыпучие продукты в Открытом складе");
             }
-            
-                try
-
-                { if(product is BulkProduct)
-                    {
-                        throw new Exception("Сыпучие продукты в Открытом складе");
-                    }
-                 
-                }
+               
                 catch(Exception e)
                 {
                       Console.WriteLine($"Ошибка:{e.Message}");
