@@ -35,8 +35,7 @@ namespace Project
               City="Busan",
               Country="South Korea"
           };
-            Product s = new Product();
-            s.MyExtension("coca-cola");            /*
+            product.MyExtension("coca-cola");            /*
             Console.WriteLine("Выберите тип склада:Открытый или Закрытый\n");
             string type=Console.ReadLine();
             Console.WriteLine("1.Добавить товар  ");

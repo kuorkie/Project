@@ -8,10 +8,13 @@ namespace Project
 {
     static class Extension
     {
-        public static void  MyExtension(this Product s , string name)
+        public static void  MyExtension(this Product product,string name)
         {
-            string sku = Product.Where(u => u.Name == name).FirstOrDefault().SKU;
-            Console.WriteLine(sku);
+            if (product.Name == name)
+            {
+                Console.WriteLine( product.SKU);
+            }
+
         }
     }
 }
