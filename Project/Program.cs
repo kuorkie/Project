@@ -20,7 +20,7 @@ namespace Project
             Product product1 = new DimensionProduct
             {
                 Name = "sprite",
-                SKU = "2",
+                SKU = "256",
                 Description="cold",
                 Count = 20,
                 Price = 250
@@ -35,7 +35,9 @@ namespace Project
               City="Busan",
               Country="South Korea"
           };
-            product.MyExtension("coca-cola");            /*
+           
+            
+                
             Console.WriteLine("Выберите тип склада:Открытый или Закрытый\n");
             string type=Console.ReadLine();
             Console.WriteLine("1.Добавить товар  ");
@@ -54,6 +56,8 @@ namespace Project
                 o.Notify += (sender, e) =>
                   Console.WriteLine(" Получено сообщение о добавление товара" + e.NameofProduct+" "+e.DateTime);
                 Console.WriteLine(o.IsAddProduct(product1, 40));
+               
+
                 o.HireResponsibleWorker(worker1);
                 switch (method) { 
                    case "1":
@@ -69,15 +73,17 @@ namespace Project
                     o.HireResponsibleWorker(worker1);break;
                case "5":
                    Console.WriteLine( o.TotalPrice()); break;
+                  
 
-                
-            }}
+
+                }
+            }
               if (type == "Закрытый" )
 
             {
               WareHouse f = new ClosedWareHouse();
                 
-                Console.WriteLine(f.IsAddProduct(product1, 40));
+                Console.WriteLine(f.IsAddProduct(product1, 100));
                 f.Notify += (sender, e) =>
                   Console.WriteLine(" Получено сообщение о добавление товара" + e.NameofProduct);
                 switch (method) { 
@@ -97,10 +103,11 @@ namespace Project
                     f.HireResponsibleWorker(worker1);break;
                case "5":
                     Console.WriteLine(f.TotalPrice());break;
-                
+                    case "6":
+                        f.MyExtension("sprite"); break;
+                }
             }
-            }
-           */
+           
             Console.ReadKey();
         }
        
