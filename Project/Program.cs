@@ -14,7 +14,7 @@ namespace Project
                 Name = "coca-cola",
                 SKU = "1",
                 Description="delicious",
-                Count = 20,
+                Count = 1,
                 Price = 250
             };
             Product product1 = new DimensionProduct
@@ -22,7 +22,7 @@ namespace Project
                 Name = "sprite",
                 SKU = "256",
                 Description="cold",
-                Count = 20,
+                Count = 2,
                 Price = 250
             };
             ResponsibleWorker worker1=new ResponsibleWorker
@@ -83,7 +83,8 @@ namespace Project
             {
               WareHouse f = new ClosedWareHouse();
                 
-                Console.WriteLine(f.IsAddProduct(product1, 100));
+                Console.WriteLine(f.IsAddProduct(product1, 1));
+                Console.WriteLine(f.IsAddProduct(product, 1));
                 f.Notify += (sender, e) =>
                   Console.WriteLine(" Получено сообщение о добавление товара" + e.NameofProduct);
                 switch (method) { 
@@ -105,6 +106,8 @@ namespace Project
                     Console.WriteLine(f.TotalPrice());break;
                     case "6":
                         f.MyExtension("sprite"); break;
+                    case "7":
+                        f.Method1();break;
                 }
             }
            
