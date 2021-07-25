@@ -9,20 +9,20 @@ namespace Project
     class Program
     {
         static void Main()
-        { Product product=new BulkProduct
+        { Product product=new DimensionProduct
             {
                 Name = "coca-cola",
                 SKU = "1",
                 Description="delicious",
-                Count = 1,
+                Count = 10,
                 Price = 250
             };
             Product product1 = new DimensionProduct
             {
-                Name = "sprite",
-                SKU = "256",
-                Description="cold",
-                Count = 2,
+                Name = "coca-cola",
+                SKU = "1",
+                Description = "delicious",
+                Count = 10,
                 Price = 250
             };
             ResponsibleWorker worker1=new ResponsibleWorker
@@ -112,15 +112,16 @@ namespace Project
                         }
                        */
             WareHouse o = new OpenWareHouse();
-           
-            Console.WriteLine(o.IsAddProduct(product1, 40));
+            Console.WriteLine(o.IsAddProduct(product1,20));
             WareHouse f = new ClosedWareHouse();
-            Console.WriteLine(o.IsAddProduct(product1, 80));
-            Console.WriteLine(f.IsAddProduct(product, 100));
-            f.MyExtension1(o);
-            f.MyExtension2(o);
+            Console.WriteLine(f.IsAddProduct(product1,10));
+            Console.WriteLine(f.IsAddProduct(product,20));
+           f.MyExtension1(o);
+            //f.MyExtension2(o);
+            //f.Method1();
             Console.ReadKey();
         }
        
+
     }
 }

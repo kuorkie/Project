@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project
 {
-    static class Extension
+    public static class Extension
     {
         public static void MyExtension(this WareHouse f, string name)
         {
@@ -23,12 +23,16 @@ namespace Project
         
         public static void  Method1(this WareHouse f)
         {
-            var result = f.Product.Where(u => u.Count < 100).OrderBy(u=>u.Name);
+            var result = f.Product.Where(u => u.Count < 3).OrderBy(u=>u.Count);
             if (result == null)
             {
                 Console.WriteLine("failed");
             }
-            Console.WriteLine(result);
+            foreach(var i in f.Product.Where(u => u.Count < 3).OrderBy(u => u.Count))
+            {
+                Console.WriteLine(i.Count); 
+                
+            }
 
         }
 

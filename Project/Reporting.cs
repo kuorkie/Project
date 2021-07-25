@@ -21,12 +21,10 @@ namespace Project
             {
                 Console.WriteLine(item);
             }*/
-            var result = f.Product.Select(u => new { u.Name, u.Count ,u.Price,u.SKU,u.Description}).Intersect(o.Product.Select(u => new { u.Name, u.Count, u.Price, u.SKU, u.Description })).ToList();
-
-            foreach (var item in result)
-            {
-                Console.WriteLine($"Name:{item.Name} Count:{item.Count} Price: {item.Price} SKu: {item.SKU} Description: {item.Description}");
-            }
+            var result = f.Product.Intersect(o.Product); 
+            foreach (var i in result) {
+                Console.WriteLine(i); }
+            
         }
        public static void MyExtension2(this WareHouse f,WareHouse o)
         {
@@ -37,10 +35,13 @@ namespace Project
                 {
                     if (i.Count > 1)
                     {
-                        o.IsAddProduct(i, i.Count / 2);
+                        o.IsAddProduct(i,i.Count / 2);
+                        Console.WriteLine(f.Product.Where(u => u.Name == i.Name).FirstOrDefault().Count -= i.Count/2);
+                        
                     }
                 }
             }
+            
         } 
     }
 }
