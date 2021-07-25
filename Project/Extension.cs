@@ -23,8 +23,7 @@ namespace Project
         
         public static void  Method1(this WareHouse f)
         {
-            var
-                result = f.Product.Where(u => u.Count < 100).OrderBy(u=>u.Name);
+            var result = f.Product.Where(u => u.Count < 100).OrderBy(u=>u.Name);
             if (result == null)
             {
                 Console.WriteLine("failed");
@@ -33,5 +32,6 @@ namespace Project
 
         }
 
-        }
+     
+    }
     }

@@ -37,7 +37,7 @@ namespace Project
           };
            
             
-                
+             /*   
             Console.WriteLine("Выберите тип склада:Открытый или Закрытый\n");
             string type=Console.ReadLine();
             Console.WriteLine("1.Добавить товар  ");
@@ -45,72 +45,79 @@ namespace Project
             Console.WriteLine("3.Информация о товаре");
             Console.WriteLine("4.Назначить ответственого работника");
             Console.WriteLine("5.Общая цена\n");
+
             
 
+                        string method =Console.ReadLine();
+                        if (type == "Открытый" )
 
-            string method =Console.ReadLine();
-            if (type == "Открытый" )
-
-            {
-              WareHouse o = new OpenWareHouse();
-                o.Notify += (sender, e) =>
-                  Console.WriteLine(" Получено сообщение о добавление товара" + e.NameofProduct+" "+e.DateTime);
-                Console.WriteLine(o.IsAddProduct(product1, 40));
-               
-
-                o.HireResponsibleWorker(worker1);
-                switch (method) { 
-                   case "1":
-             Console.WriteLine(o.IsAddProduct(product, 40)); break;
-                   case "2":
-                
-                Console.WriteLine(o.IsMove(15,product1,new ClosedWareHouse()));break;
-
-                
-                case "3":
-                    o.Print(); break;
-                case "4":
-                    o.HireResponsibleWorker(worker1);break;
-               case "5":
-                   Console.WriteLine( o.TotalPrice()); break;
-                  
+                        {
+                          WareHouse o = new OpenWareHouse();
+                            o.Notify += (sender, e) =>
+                              Console.WriteLine(" Получено сообщение о добавление товара" + e.NameofProduct+" "+e.DateTime);
+                            Console.WriteLine(o.IsAddProduct(product1, 40));
 
 
-                }
-            }
-              if (type == "Закрытый" )
+                            o.HireResponsibleWorker(worker1);
+                            switch (method) { 
+                               case "1":
+                         Console.WriteLine(o.IsAddProduct(product, 40)); break;
+                               case "2":
 
-            {
-              WareHouse f = new ClosedWareHouse();
-                
-                Console.WriteLine(f.IsAddProduct(product1, 1));
-                Console.WriteLine(f.IsAddProduct(product, 1));
-                f.Notify += (sender, e) =>
-                  Console.WriteLine(" Получено сообщение о добавление товара" + e.NameofProduct);
-                switch (method) { 
-                   case "1":
-             Console.WriteLine(f.IsAddProduct(product1, 10));
-                        
-                        break;
-                   case "2":
-                
-                Console.WriteLine(f.IsMove(20,product1,new OpenWareHouse()));
-                       break;
+                            Console.WriteLine(o.IsMove(15,product1,new ClosedWareHouse()));break;
 
-                
-                case "3":
-                    f.Print(); break;
-                case "4":
-                    f.HireResponsibleWorker(worker1);break;
-               case "5":
-                    Console.WriteLine(f.TotalPrice());break;
-                    case "6":
-                        f.MyExtension("sprite"); break;
-                    case "7":
-                        f.Method1();break;
-                }
-            }
+
+                            case "3":
+                                o.Print(); break;
+                            case "4":
+                                o.HireResponsibleWorker(worker1);break;
+                           case "5":
+                               Console.WriteLine( o.TotalPrice()); break;
+
+
+
+                            }
+                        }
+                          if (type == "Закрытый" )
+
+                        {
+                          WareHouse f = new ClosedWareHouse();
+
+                            Console.WriteLine(f.IsAddProduct(product1, 1));
+                            Console.WriteLine(f.IsAddProduct(product, 1));
+                            f.Notify += (sender, e) =>
+                              Console.WriteLine(" Получено сообщение о добавление товара" + e.NameofProduct);
+                            switch (method) { 
+                               case "1":
+                         Console.WriteLine(f.IsAddProduct(product1, 10));
+
+                                    break;
+                               case "2":
+
+                            Console.WriteLine(f.IsMove(20,product1,new OpenWareHouse()));
+                                   break;
+
+
+                            case "3":
+                                f.Print(); break;
+                            case "4":
+                                f.HireResponsibleWorker(worker1);break;
+                           case "5":
+                                Console.WriteLine(f.TotalPrice());break;
+                                case "6":
+                                    f.MyExtension("sprite"); break;
+                                case "7":
+                                    f.MyExtension1(new OpenWareHouse());break;
+                            }
+                        }
+                       */
+            WareHouse o = new OpenWareHouse();
            
+            Console.WriteLine(o.IsAddProduct(product1, 40));
+            WareHouse f = new ClosedWareHouse();
+            Console.WriteLine(o.IsAddProduct(product1, 80));
+            Console.WriteLine(f.IsAddProduct(product, 100));
+            f.MyExtension1(o);
             Console.ReadKey();
         }
        
