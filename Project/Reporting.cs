@@ -28,5 +28,19 @@ namespace Project
                 Console.WriteLine($"Name:{item.Name} Count:{item.Count} Price: {item.Price} SKu: {item.SKU} Description: {item.Description}");
             }
         }
+       public static void MyExtension2(this WareHouse f,WareHouse o)
+        {
+            var result = f.Product.Select(u=>u.Name).Except(o.Product.Select(u=>u.Name)).FirstOrDefault();
+             Console.WriteLine(result);
+          foreach(var i in f.Product ) {
+                if (result == i.Name)
+                {
+                    if (i.Count > 1)
+                    {
+                        o.IsAddProduct(i, i.Count / 2);
+                    }
+                }
+            }
+        } 
     }
 }

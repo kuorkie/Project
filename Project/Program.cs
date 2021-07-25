@@ -118,6 +118,7 @@ namespace Project
             Console.WriteLine(o.IsAddProduct(product1, 80));
             Console.WriteLine(f.IsAddProduct(product, 100));
             f.MyExtension1(o);
+            f.MyExtension2(o);
             Console.ReadKey();
         }
        
