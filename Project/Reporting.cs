@@ -50,14 +50,19 @@ namespace Project
 
         public static void ArifProduct(this WareHouse f,WareHouse o)
         {
-            var result = f.Product.Concat(o.Product).GroupBy(u=>u.Name).Average(u=>u.Count);
+            var result = f.Product.Concat(o.Product).GroupBy(u => u.Name);
            
-           
-            /*foreach(var i in f.Product.Concat(o.Product))
-            {
-                Console.WriteLine($"Name:{i.Name} Count:{i.result}");
-            }*/
+          foreach(var i in result)
+            { 
+                if (result == i)
+                {
+                    Console.WriteLine($"Name: {i.Key} Count:{i.Average(u => u.Count)}");
+                }
+            }
+          
+            
         }
+        
     }
         }
     
