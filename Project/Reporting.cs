@@ -24,31 +24,41 @@ namespace Project
         }
         public static void First3Max(this WareHouse f)
         {
-            var result = f.Product.OrderBy(u=>u.Count).Reverse().Take(3);
-          foreach(var i in result)
+            var result = f.Product.OrderBy(u => u.Count).Reverse().Take(3);
+            foreach (var i in result)
             {
                 Console.WriteLine(i.Name);
 
             }
 
 
-            }
+        }
         public static void SpecialProduct(this WareHouse f)
         {
-            var result = f.Product.Distinct().OrderBy(u=>u.Name);
-          foreach(var i in result)
+            var result = f.Product.Distinct().OrderBy(u => u.Name);
+            foreach (var i in result)
             {
                 Console.WriteLine(i.Name);
             }
         }
         public static void NoBulkProduct(this List<WareHouse> f)
         {
-                    
-                var result = f.Where(u => u.Product is BulkProduct).Count();
-                Console.WriteLine(result);
+
+            var result = f.Where(u => !(u.Product is BulkProduct)).Count();
+            Console.WriteLine(result);
         }
-        
-        
+
+        public static void ArifProduct(this WareHouse f,WareHouse o)
+        {
+            var result = f.Product.Concat(o.Product).GroupBy(u=>u.Name).Average(u=>u.Count);
+           
+           
+            /*foreach(var i in f.Product.Concat(o.Product))
+            {
+                Console.WriteLine($"Name:{i.Name} Count:{i.result}");
+            }*/
         }
     }
+        }
+    
 

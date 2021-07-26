@@ -130,12 +130,14 @@ namespace Project
             WareHouse o = new OpenWareHouse();
             Console.WriteLine(o.IsAddProduct(product1,0));
             WareHouse f = new ClosedWareHouse();
-           
+            Console.WriteLine(f.IsAddProduct(product2, 20));
+            
             Console.WriteLine(f.IsAddProduct(product,10));
             Console.WriteLine(f.IsAddProduct(product1, 10));
-            Console.WriteLine(f.IsAddProduct(product2, 20));
+            
             Console.WriteLine(f.IsAddProduct(product4, 30));
             //f.InTwoWareHouse(o);
+            f.ArifProduct(o);
             //f.First3Max();
             //f.MoveHalfProduct(o);
             // f.CountLessThan3();
@@ -143,7 +145,8 @@ namespace Project
             List<WareHouse> f1 = new List<WareHouse>();
             f1.Add(f);
             f1.Add(o);
-            f1.NoBulkProduct();
+            //f1.NoBulkProduct();
+            
             Console.ReadKey();
         }
        
