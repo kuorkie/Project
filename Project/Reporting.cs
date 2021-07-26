@@ -41,6 +41,13 @@ namespace Project
                 Console.WriteLine(i.Name);
             }
         }
+        public static void NoBulkProduct(this List<WareHouse> f)
+        {
+                    
+                var result = f.Where(u => u.Product is BulkProduct).Count();
+                Console.WriteLine(result);
+        }
+        
         
         }
     }

@@ -25,9 +25,9 @@ namespace Project
                 Count = 10,
                 Price = 250
             };
-            Product product2 = new DimensionProduct
+            Product product2 = new BulkProduct
             {
-                Name = "sprite",
+                Name = "sp",
                 SKU = "1",
                 Description = "delicious",
                 Count = 10,
@@ -139,7 +139,11 @@ namespace Project
             //f.First3Max();
             //f.MoveHalfProduct(o);
             // f.CountLessThan3();
-            f.SpecialProduct();
+            //f.SpecialProduct();
+            List<WareHouse> f1 = new List<WareHouse>();
+            f1.Add(f);
+            f1.Add(o);
+            f1.NoBulkProduct();
             Console.ReadKey();
         }
        
