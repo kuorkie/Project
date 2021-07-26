@@ -53,11 +53,11 @@ namespace Project
             var result = f.Product.Concat(o.Product).GroupBy(u => u.Name);
            
           foreach(var i in result)
-            { 
-                if (result == i)
-                {
-                    Console.WriteLine($"Name: {i.Key} Count:{i.Average(u => u.Count)}");
-                }
+            {
+                var result1 = i.Average(u => u.Count);
+
+                Console.WriteLine($"Name: {i.Key} Count:{result1}");
+                
             }
           
             

@@ -137,7 +137,7 @@ namespace Project
             
             Console.WriteLine(f.IsAddProduct(product4, 30));
             //f.InTwoWareHouse(o);
-            f.ArifProduct(o);
+            //f.ArifProduct(o);
             //f.First3Max();
             //f.MoveHalfProduct(o);
             // f.CountLessThan3();
