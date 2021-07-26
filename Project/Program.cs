@@ -27,7 +27,7 @@ namespace Project
             };
             Product product2 = new DimensionProduct
             {
-                Name = "spri",
+                Name = "sprite",
                 SKU = "1",
                 Description = "delicious",
                 Count = 10,
@@ -136,9 +136,10 @@ namespace Project
             Console.WriteLine(f.IsAddProduct(product2, 20));
             Console.WriteLine(f.IsAddProduct(product4, 30));
             //f.InTwoWareHouse(o);
-            f.First3Max();
+            //f.First3Max();
             //f.MoveHalfProduct(o);
-           // f.CountLessThan3();
+            // f.CountLessThan3();
+            f.SpecialProduct();
             Console.ReadKey();
         }
        

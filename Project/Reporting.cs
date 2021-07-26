@@ -25,7 +25,7 @@ namespace Project
         public static void First3Max(this WareHouse f)
         {
             var result = f.Product.OrderBy(u=>u.Count).Reverse().Take(3);
-          foreach(var i in f.Product.OrderBy(u => u.Count).Reverse().Take(3))
+          foreach(var i in result)
             {
                 Console.WriteLine(i.Name);
 
@@ -33,6 +33,15 @@ namespace Project
 
 
             }
+        public static void SpecialProduct(this WareHouse f)
+        {
+            var result = f.Product.Distinct().OrderBy(u=>u.Name);
+          foreach(var i in result)
+            {
+                Console.WriteLine(i.Name);
+            }
+        }
+        
         }
     }
 

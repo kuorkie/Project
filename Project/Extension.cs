@@ -21,18 +21,9 @@ namespace Project
             
         }
         public static void InTwoWareHouse(this WareHouse f, WareHouse o)
-        {/*
-
-            var result = f.Product.Join(o.Product, f1 => f1, o1 => o1, (f1, o1) => f1);
-            Console.WriteLine(result);
+        {
 
             
-            var result = f.Product.Intersect(o.Product).ToList();
-            var result1 = (from num in f.Product select num).Intersect(o.Product).ToList();
-            foreach(var item in result1)
-            {
-                Console.WriteLine(item);
-            }*/
             var result = f.Product.Intersect(o.Product).ToList();
 
             foreach (var i in result)
