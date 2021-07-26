@@ -22,7 +22,7 @@ namespace Project
                 Name = "coca-cola",
                 SKU = "1",
                 Description = "delicious",
-                Count = 10,
+                Count = 50,
                 Price = 250
             };
             ResponsibleWorker worker1=new ResponsibleWorker
@@ -112,13 +112,13 @@ namespace Project
                         }
                        */
             WareHouse o = new OpenWareHouse();
-            Console.WriteLine(o.IsAddProduct(product1,20));
+            Console.WriteLine(o.IsAddProduct(product1,0));
             WareHouse f = new ClosedWareHouse();
-            Console.WriteLine(f.IsAddProduct(product1,10));
-            Console.WriteLine(f.IsAddProduct(product,20));
-           f.MyExtension1(o);
-            //f.MyExtension2(o);
-            //f.Method1();
+            Console.WriteLine(f.IsAddProduct(product1,0));
+            Console.WriteLine(f.IsAddProduct(product,0));
+           f.InTwoWareHouse(o);
+            //f.MoveHalfProduct(o);
+           // f.CountLessThan3();
             Console.ReadKey();
         }
        
