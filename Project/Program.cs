@@ -19,10 +19,10 @@ namespace Project
             };
             Product product1 = new DimensionProduct
             {
-                Name = "coca-cola",
+                Name = "sprite",
                 SKU = "1",
                 Description = "delicious",
-                Count = 50,
+                Count = 10,
                 Price = 250
             };
             ResponsibleWorker worker1=new ResponsibleWorker
@@ -114,9 +114,10 @@ namespace Project
             WareHouse o = new OpenWareHouse();
             Console.WriteLine(o.IsAddProduct(product1,0));
             WareHouse f = new ClosedWareHouse();
-            Console.WriteLine(f.IsAddProduct(product1,0));
+           
             Console.WriteLine(f.IsAddProduct(product,0));
-           f.InTwoWareHouse(o);
+            Console.WriteLine(f.IsAddProduct(product1, 0));
+            f.InTwoWareHouse(o);
             //f.MoveHalfProduct(o);
            // f.CountLessThan3();
             Console.ReadKey();

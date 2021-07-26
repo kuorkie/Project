@@ -33,11 +33,11 @@ namespace Project
             {
                 Console.WriteLine(item);
             }*/
-            var result = f.Product.Intersect(o.Product);
+            var result = f.Product.Intersect(o.Product).ToList();
 
             foreach (var i in result)
             {
-                Console.WriteLine(i);
+                Console.WriteLine(i.Name);
             }
 
         }
