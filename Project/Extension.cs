@@ -8,15 +8,15 @@ namespace Project
 {
     public static class Extension
     {
-        public static void FindSKU(this WareHouse f, string name)
+        public static string FindSKU(this WareHouse f, string name)
         {
             string sku = f.Product.Where(u => u.Name == name).FirstOrDefault().SKU;
             if (sku == null)
             {
-                Console.WriteLine("failed");
+                return "failed";
             }
-            
-                Console.WriteLine(sku);
+
+            return sku;
             
             
         }
@@ -24,7 +24,7 @@ namespace Project
         {
 
             
-            var result = f.Product.Intersect(o.Product).ToList();
+           var result = f.Product.Intersect(o.Product).ToList();
 
             foreach (var i in result)
             {

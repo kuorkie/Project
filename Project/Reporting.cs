@@ -43,9 +43,12 @@ namespace Project
         }
         public static void NoBulkProduct(this List<WareHouse> f)
         {
+            
 
-            var result = f.Where(u => !(u.Product is BulkProduct)).Count();
+            bool result = f.All(u => !(u.Product is BulkProduct));
+           
             Console.WriteLine(result);
+          
         }
 
         public static void ArifProduct(this WareHouse f,WareHouse o)

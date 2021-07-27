@@ -9,7 +9,7 @@ namespace Project
     class Program
     {
         static void Main()
-        { Product product=new DimensionProduct
+        { Product product=new BulkProduct
             {
                 Name = "coca-cola",
                 SKU = "1",
@@ -25,7 +25,7 @@ namespace Project
                 Count = 10,
                 Price = 250
             };
-            Product product2 = new BulkProduct
+            Product product2 = new LiquidProduct
             {
                 Name = "sp",
                 SKU = "1",
@@ -136,7 +136,7 @@ namespace Project
             Console.WriteLine(f.IsAddProduct(product1, 10));
             
             Console.WriteLine(f.IsAddProduct(product4, 30));
-            //f.InTwoWareHouse(o);
+            f.InTwoWareHouse(o);
             //f.ArifProduct(o);
             //f.First3Max();
             //f.MoveHalfProduct(o);
@@ -145,7 +145,7 @@ namespace Project
             List<WareHouse> f1 = new List<WareHouse>();
             f1.Add(f);
             f1.Add(o);
-            //f1.NoBulkProduct();
+          //  f1.NoBulkProduct();
             
             Console.ReadKey();
         }
