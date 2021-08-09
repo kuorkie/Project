@@ -45,23 +45,20 @@ namespace Project
         {
             
 
-            bool result = f.All(u => !(u.Product is BulkProduct));
+            var result = f.Where(x=>x.Product.All(u => !(u is BulkProduct)));
            
             Console.WriteLine(result);
           
         }
 
-        public static void ArifProduct(this WareHouse f,WareHouse o)
+        public static void ArifProduct(this List<WareHouse> warehouse)
         {
-            var result = f.Product.Concat(o.Product).GroupBy(u => u.Name);
-           
-          foreach(var i in result)
-            {
-                var result1 = i.Average(u => u.Count);
-
-                Console.WriteLine($"Name: {i.Key} Count:{result1}");
-                
+           var result = warehouse.Select(u=>u.Product).GroupBy(x=>x.Count);
+           foreach(var i in result)
+            {   
+                Console.WriteLine($"Name:{i}");
             }
+          
           
             
         }
