@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project
 {
-    public class Product
+    public class Product:ICloneable
     {public string Name { get; set; }
      public string SKU { get; set; }
 
@@ -21,7 +21,10 @@ namespace Project
 
     public decimal Price { get; set; }
 
-        
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
 
     }
    
